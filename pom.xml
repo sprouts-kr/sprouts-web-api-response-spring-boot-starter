@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>kr.sprouts.autoconfigure</groupId>
-	<artifactId>sprouts-web-response-spring-boot-starter</artifactId>
+	<artifactId>sprouts-web-api-response-spring-boot-starter</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>sprouts-web-response-spring-boot-starter</name>
+	<name>sprouts-web-api-response-spring-boot-starter</name>
 	<properties>
 		<java.version>11</java.version>
 		<sonar.qualitygate.wait>true</sonar.qualitygate.wait>

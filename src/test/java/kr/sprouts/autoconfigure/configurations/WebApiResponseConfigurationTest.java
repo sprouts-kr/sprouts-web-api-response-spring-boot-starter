@@ -7,9 +7,9 @@ import org.springframework.boot.test.context.runner.ApplicationContextRunner;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-class WebResponseConfigurationTest {
+class WebApiResponseConfigurationTest {
     private final ApplicationContextRunner applicationContextRunner = new ApplicationContextRunner()
-            .withConfiguration(AutoConfigurations.of(WebResponseConfiguration.class));
+            .withConfiguration(AutoConfigurations.of(WebApiResponseConfiguration.class));
 
     @Test
     void configuration() {
@@ -20,7 +20,7 @@ class WebResponseConfigurationTest {
         };
 
         this.applicationContextRunner.withPropertyValues(properties)
-                .run(context-> assertThat(context).hasSingleBean(WebResponseConfiguration.class));
+                .run(context-> assertThat(context).hasSingleBean(WebApiResponseConfiguration.class));
     }
 
     @Test
@@ -32,7 +32,7 @@ class WebResponseConfigurationTest {
         };
 
         this.applicationContextRunner.withPropertyValues(properties)
-                .run(context-> assertThat("sprouts-gateway".equals(context.getBean(WebResponseConfiguration.class).getDefaultHost())).isTrue());
+                .run(context-> assertThat("sprouts-gateway".equals(context.getBean(WebApiResponseConfiguration.class).getDefaultHost())).isTrue());
     }
 
     @Test
@@ -44,7 +44,7 @@ class WebResponseConfigurationTest {
 
         assertThatThrownBy(() -> {
             this.applicationContextRunner.withPropertyValues(nonDefaultHostProperties)
-                    .run(context-> context.getBean(WebResponseConfiguration.class).getDefaultHost());
+                    .run(context-> context.getBean(WebApiResponseConfiguration.class).getDefaultHost());
         }).isInstanceOf(IllegalStateException.class);
 
 
@@ -54,7 +54,7 @@ class WebResponseConfigurationTest {
 
         assertThatThrownBy(() -> {
             this.applicationContextRunner.withPropertyValues(nonHostsProperties)
-                    .run(context-> context.getBean(WebResponseConfiguration.class).getDefaultHost());
+                    .run(context-> context.getBean(WebApiResponseConfiguration.class).getDefaultHost());
         }).isInstanceOf(IllegalStateException.class);
 
         String[] invalidProperties = {
@@ -65,7 +65,7 @@ class WebResponseConfigurationTest {
 
         assertThatThrownBy(() -> {
             this.applicationContextRunner.withPropertyValues(invalidProperties)
-                    .run(context-> context.getBean(WebResponseConfiguration.class).getDefaultHost());
+                    .run(context-> context.getBean(WebApiResponseConfiguration.class).getDefaultHost());
         }).isInstanceOf(IllegalStateException.class);
 
         String[] noMatchDefaultProperties = {
@@ -78,7 +78,7 @@ class WebResponseConfigurationTest {
 
         assertThatThrownBy(() -> {
             this.applicationContextRunner.withPropertyValues(noMatchDefaultProperties)
-                    .run(context-> context.getBean(WebResponseConfiguration.class).getDefaultHost());
+                    .run(context-> context.getBean(WebApiResponseConfiguration.class).getDefaultHost());
         }).isInstanceOf(IllegalStateException.class);
     }
 }

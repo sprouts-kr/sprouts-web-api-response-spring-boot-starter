@@ -1,6 +1,6 @@
 package kr.sprouts.autoconfigure.response.body.link;
 
-import kr.sprouts.autoconfigure.properties.WebResponseProperty;
+import kr.sprouts.autoconfigure.properties.WebApiResponseProperty;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpMethod;
@@ -20,16 +20,16 @@ public class LinkBuilder {
 
     static private final Logger logger = LoggerFactory.getLogger(LinkBuilder.class);
 
-    public LinkBuilder(WebResponseProperty WebResponseProperty) {
-        LinkBuilder.defaultHost = WebResponseProperty.getDefaultHost();
+    public LinkBuilder(WebApiResponseProperty WebApiResponseProperty) {
+        LinkBuilder.defaultHost = WebApiResponseProperty.getDefaultHost();
 
-        if (WebResponseProperty.getHosts() != null) {
-            LinkBuilder.hosts = WebResponseProperty.getHosts().stream()
+        if (WebApiResponseProperty.getHosts() != null) {
+            LinkBuilder.hosts = WebApiResponseProperty.getHosts().stream()
                     .filter(hostProperties -> hostProperties.getName() != null && hostProperties.getUrl() != null)
                     .filter(hostProperties -> this.isValidUrl(hostProperties.getUrl()))
                     .collect(Collectors.toMap(
-                            kr.sprouts.autoconfigure.properties.WebResponseProperty.Host::getName,
-                            kr.sprouts.autoconfigure.properties.WebResponseProperty.Host::getUrl,
+                            kr.sprouts.autoconfigure.properties.WebApiResponseProperty.Host::getName,
+                            kr.sprouts.autoconfigure.properties.WebApiResponseProperty.Host::getUrl,
                             (prev, current) -> prev
                     ));
         }
@@ -65,7 +65,7 @@ public class LinkBuilder {
             logger.error(
                     String.format(
                             "Cannot create link. Host named \"%s\" not matched in host",
-                            hostName, hostName
+                            hostName
                     )
             );
 
