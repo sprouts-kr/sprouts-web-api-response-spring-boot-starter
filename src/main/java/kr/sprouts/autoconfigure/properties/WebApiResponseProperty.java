@@ -7,7 +7,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import java.util.List;
 
 @ConfigurationProperties(prefix = "sprouts.web.response")
-public class WebResponseProperty {
+public class WebApiResponseProperty {
 
     @Getter @Setter
     private String defaultHost;
