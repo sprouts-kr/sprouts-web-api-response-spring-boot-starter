@@ -14,7 +14,7 @@ public class StructuredResponse {
         return StructuredResponseEntity.createFromMultiResponse(responses, HttpStatus.OK);
     }
 
-    public static <C extends Collection<? extends BaseResponse>> StructuredPagedResponseEntity paged(C responses) {
+    public static <C extends Collection<? extends BaseResponse>> StructuredPagedResponseEntity<C> paged(C responses) {
         return StructuredPagedResponseEntity.createFromMultiResponse(responses);
     }
 

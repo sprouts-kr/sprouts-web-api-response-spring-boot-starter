@@ -19,6 +19,6 @@ public class SingleStructuredResponseBody<T extends BaseResponse> extends Struct
     }
 
     public static <T extends BaseResponse> SingleStructuredResponseBody<T> of(T content) {
-        return new SingleStructuredResponseBody(content);
+        return new SingleStructuredResponseBody<>(content);
     }
 }
