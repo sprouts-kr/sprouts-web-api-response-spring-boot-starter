@@ -7,7 +7,7 @@ public enum SortDirection {
     ASC("ASC"),
     DESC("DESC");
 
-    private String value;
+    private final String value;
 
     SortDirection(String value) {
         this.value = value;
