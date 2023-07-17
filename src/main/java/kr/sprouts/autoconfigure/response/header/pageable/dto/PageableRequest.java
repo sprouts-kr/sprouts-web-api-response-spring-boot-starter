@@ -9,7 +9,6 @@ public class PageableRequest {
 
     @Getter(AccessLevel.PACKAGE)
     private String offset;
-
     @Getter(AccessLevel.PACKAGE)
     private String limit;
 
@@ -23,8 +22,8 @@ public class PageableRequest {
 
         String[] params = string.split(";");
 
-        for (int i = 0; i < params.length; i++) {
-            String[] param = params[i].split("=");
+        for (String s : params) {
+            String[] param = s.split("=");
 
             if (param.length == 2) {
                 String name = param[0].trim();
@@ -32,9 +31,7 @@ public class PageableRequest {
 
                 if (name.equalsIgnoreCase("offset")) {
                     offset = value;
-                }
-
-                else if (name.equalsIgnoreCase("limit")) {
+                } else if (name.equalsIgnoreCase("limit")) {
                     limit = value;
                 }
             }

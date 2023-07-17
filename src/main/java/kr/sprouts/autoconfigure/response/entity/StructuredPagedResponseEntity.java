@@ -12,14 +12,14 @@ public class StructuredPagedResponseEntity<C extends Collection<? extends BaseRe
     @Getter
     private final static HttpStatus httpStatus = HttpStatus.OK;
     @Getter(AccessLevel.PACKAGE)
-    private C baseResponseBody;
+    private final C baseResponseBody;
 
     private StructuredPagedResponseEntity(C baseResponses) {
         this.baseResponseBody = baseResponses;
     }
 
-    static <C extends Collection<? extends BaseResponse>> StructuredPagedResponseEntity createFromMultiResponse(C responses) {
-        return new StructuredPagedResponseEntity(responses);
+    static <C extends Collection<? extends BaseResponse>> StructuredPagedResponseEntity<C> createFromMultiResponse(C responses) {
+        return new StructuredPagedResponseEntity<>(responses);
     }
 
     public StructuredResponseEntity withTotalSize(Long totalSize) {

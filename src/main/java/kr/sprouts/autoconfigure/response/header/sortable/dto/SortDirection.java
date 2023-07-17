@@ -7,7 +7,7 @@ public enum SortDirection {
     ASC("ASC"),
     DESC("DESC");
 
-    private String value;
+    private final String value;
 
     SortDirection(String value) {
         this.value = value;
@@ -16,13 +16,9 @@ public enum SortDirection {
     public static SortDirection fromValue(String value) {
         if (value.equalsIgnoreCase("ASC")) {
             return SortDirection.ASC;
-        }
-
-        else if (value.equalsIgnoreCase("DESC")) {
+        } else if (value.equalsIgnoreCase("DESC")) {
             return SortDirection.DESC;
-        }
-
-        else {
+        } else {
             throw InvalidSortOptionException.byDirection();
         }
     }

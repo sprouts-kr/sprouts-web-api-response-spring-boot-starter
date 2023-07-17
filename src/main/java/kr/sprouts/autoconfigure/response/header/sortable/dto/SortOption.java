@@ -9,7 +9,6 @@ public class SortOption {
 
     @Getter
     private String name;
-
     @Getter
     private SortDirection direction;
 
