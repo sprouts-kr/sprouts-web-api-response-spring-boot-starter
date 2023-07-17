@@ -3,7 +3,6 @@ package kr.sprouts.autoconfigure.response.body.link;
 import kr.sprouts.autoconfigure.properties.WebApiResponseProperty;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
 
@@ -18,10 +17,8 @@ import java.util.stream.Collectors;
 public class LinkBuilder {
     static String defaultHost = null;
     static Map<String, String> hosts = new HashMap<>();
-
     static private final Logger logger = LoggerFactory.getLogger(LinkBuilder.class);
 
-    @Autowired
     public LinkBuilder(WebApiResponseProperty WebApiResponseProperty) {
         LinkBuilder.defaultHost = WebApiResponseProperty.getDefaultHost();
 

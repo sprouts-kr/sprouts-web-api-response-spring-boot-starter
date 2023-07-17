@@ -1,9 +1,12 @@
 package kr.sprouts.autoconfigure.configurations;
 
 import kr.sprouts.autoconfigure.properties.WebApiResponseProperty;
+import kr.sprouts.autoconfigure.response.body.link.LinkBuilder;
+import kr.sprouts.autoconfigure.response.entity.StructuredResponse;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 import java.net.MalformedURLException;
@@ -12,6 +15,7 @@ import java.util.List;
 
 @Configuration
 @EnableConfigurationProperties(value = { WebApiResponseProperty.class })
+@ComponentScan(basePackageClasses = { LinkBuilder.class, StructuredResponse.class })
 public class WebApiResponseConfiguration {
 
     private final WebApiResponseProperty webApiResponseProperty;
