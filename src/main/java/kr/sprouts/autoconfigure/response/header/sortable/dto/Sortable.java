@@ -33,10 +33,6 @@ public class Sortable {
                 .filter(option -> option.getName().equals(name))
                 .findFirst();
 
-        if (result.isEmpty()) {
-            return null;
-        }
-
-        return result.get().getDirection();
+        return result.map(SortOption::getDirection).orElse(null);
     }
 }

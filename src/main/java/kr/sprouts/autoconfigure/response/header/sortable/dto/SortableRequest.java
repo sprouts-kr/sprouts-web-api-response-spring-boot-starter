@@ -24,7 +24,7 @@ public class SortableRequest {
 
         return new SortableRequest(
                 Arrays.stream(params)
-                        .map(param -> param.trim())
+                        .map(String::trim)
                         .filter(param -> param.length() != 0)
                         .collect(Collectors.toList())
         );
