@@ -10,10 +10,8 @@ public class BaseException extends RuntimeException {
 
     @Getter
     private final String value;
-
     @Getter
     private final String reason;
-
     @Getter
     private final HttpStatus httpStatus;
 }
