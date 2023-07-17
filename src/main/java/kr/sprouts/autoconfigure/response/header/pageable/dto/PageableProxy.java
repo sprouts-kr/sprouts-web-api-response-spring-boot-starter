@@ -10,7 +10,6 @@ public class PageableProxy {
 
     @Getter(AccessLevel.PACKAGE)
     private Integer offset;
-
     @Getter(AccessLevel.PACKAGE)
     private Integer limit;
 
@@ -30,11 +29,8 @@ public class PageableProxy {
             if (string == null) {
                 return null;
             }
-
             return Integer.parseInt(string);
-        }
-
-        catch (Exception e) {
+        } catch (Exception e) {
             throw InvalidPageOptionException.byValue();
         }
     }

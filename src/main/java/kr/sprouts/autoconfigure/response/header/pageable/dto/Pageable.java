@@ -9,7 +9,6 @@ public class Pageable {
 
     @Getter
     private Integer offset;
-
     @Getter
     private Integer limit;
 
