@@ -3,6 +3,7 @@ package kr.sprouts.autoconfigure.response.body.link;
 import kr.sprouts.autoconfigure.properties.WebApiResponseProperty;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
 
@@ -20,6 +21,7 @@ public class LinkBuilder {
 
     static private final Logger logger = LoggerFactory.getLogger(LinkBuilder.class);
 
+    @Autowired
     public LinkBuilder(WebApiResponseProperty WebApiResponseProperty) {
         LinkBuilder.defaultHost = WebApiResponseProperty.getDefaultHost();
 
@@ -39,8 +41,7 @@ public class LinkBuilder {
         try {
             new URL(url);
             return true;
-        }
-        catch (MalformedURLException e) {
+        } catch (MalformedURLException e) {
             return false;
         }
     }
@@ -62,13 +63,7 @@ public class LinkBuilder {
         String host = LinkBuilder.getHost(hostName);
 
         if (host == null) {
-            logger.error(
-                    String.format(
-                            "Cannot create link. Host named \"%s\" not matched in host",
-                            hostName
-                    )
-            );
-
+            logger.error(String.format( "Cannot create link. Host named \"%s\" not matched in host", hostName));
             return ReferenceLink.getEmptyInstance();
         }
 
@@ -80,9 +75,7 @@ public class LinkBuilder {
         String host = LinkBuilder.hosts.get(hostName);
 
         if (host == null) {
-            logger.warn(
-                    String.format("Cannot find host named \"%s\"", hostName)
-            );
+            logger.warn(String.format("Cannot find host named \"%s\"", hostName));
         }
 
         return host;
@@ -90,23 +83,12 @@ public class LinkBuilder {
 
     public static String getDefaultHost() {
         if (LinkBuilder.defaultHost == null) {
-            logger.error(
-                    String.format(
-                            "Cannot create link from default host. Default host not registered."
-                    )
-            );
-
+            logger.error("Cannot create link from default host. Default host not registered.");
             return null;
         }
 
         if (LinkBuilder.hosts.get(LinkBuilder.defaultHost) == null) {
-            logger.error(
-                    String.format(
-                            "Cannot create link from default host. Default host \"%s\" not matched in host",
-                            LinkBuilder.defaultHost
-                    )
-            );
-
+            logger.error(String.format("Cannot create link from default host. Default host \"%s\" not matched in host", LinkBuilder.defaultHost));
             return null;
         }
 
