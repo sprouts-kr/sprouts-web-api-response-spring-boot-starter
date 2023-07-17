@@ -14,10 +14,8 @@ public class PagedStructuredResponseBody<C extends Collection<? extends BaseResp
 
     @Getter
     private C content;
-
     @Getter
     private Integer size;
-
     @Getter
     private Long totalSize;
 
@@ -25,7 +23,6 @@ public class PagedStructuredResponseBody<C extends Collection<? extends BaseResp
         super(true);
         this.content = content;
         this.size = (content == null) ? 0 : content.size();
-
         this.totalSize = totalSize;
     }
 

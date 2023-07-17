@@ -13,7 +13,6 @@ public class StructuredResponseBody {
 
     @Getter
     private boolean succeeded;
-
     @Getter
     private HashMap<String, Link> links;
 

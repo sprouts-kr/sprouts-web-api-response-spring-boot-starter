@@ -14,7 +14,6 @@ public class ComposedStructuredResponseBody<C extends Collection<? extends BaseR
 
     @Getter
     private C content;
-
     @Getter
     private Integer size;
 

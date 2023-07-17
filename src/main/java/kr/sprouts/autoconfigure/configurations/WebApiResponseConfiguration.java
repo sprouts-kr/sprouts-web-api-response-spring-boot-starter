@@ -40,7 +40,6 @@ public class WebApiResponseConfiguration {
     }
 
     private boolean isValidUrl(String url) {
-
         try {
             new URL(url);
             return true;

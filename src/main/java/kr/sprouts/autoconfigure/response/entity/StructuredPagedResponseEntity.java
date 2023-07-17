@@ -11,7 +11,6 @@ public class StructuredPagedResponseEntity<C extends Collection<? extends BaseRe
 
     @Getter
     private final static HttpStatus httpStatus = HttpStatus.OK;
-
     @Getter(AccessLevel.PACKAGE)
     private C baseResponseBody;
 
