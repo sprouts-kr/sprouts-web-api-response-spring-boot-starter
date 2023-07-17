@@ -18,7 +18,7 @@ public class StructuredCreateResponseEntity {
     private URI location;
 
     @Getter(AccessLevel.PACKAGE)
-    private BaseResponse baseResponseBody;
+    private final BaseResponse baseResponseBody;
 
     private StructuredCreateResponseEntity(BaseResponse baseResponse) {
         this.baseResponseBody = baseResponse;
