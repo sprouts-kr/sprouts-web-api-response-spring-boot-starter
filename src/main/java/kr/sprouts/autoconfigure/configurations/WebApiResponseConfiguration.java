@@ -54,12 +54,4 @@ public class WebApiResponseConfiguration {
             return false;
         }
     }
-
-    public String getDefaultHost() {
-        return this.webApiResponseProperty.getDefaultHost();
-    }
-
-    public List<WebApiResponseProperty.Host> getHosts() {
-        return this.webApiResponseProperty.getHosts();
-    }
 }
