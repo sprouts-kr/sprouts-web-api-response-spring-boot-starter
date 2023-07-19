@@ -12,7 +12,7 @@ import java.net.URI;
 public class StructuredCreateResponseEntity {
 
     @Getter
-    private final static HttpStatus httpStatus = HttpStatus.CREATED;
+    private static final HttpStatus httpStatus = HttpStatus.CREATED;
 
     @Getter
     private URI location;
