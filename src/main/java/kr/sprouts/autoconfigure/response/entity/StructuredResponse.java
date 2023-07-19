@@ -1,7 +1,7 @@
 package kr.sprouts.autoconfigure.response.entity;
 
 import kr.sprouts.autoconfigure.response.base.BaseResponse;
-import kr.sprouts.autoconfigure.response.base.exception.BaseException;
+import kr.sprouts.autoconfigure.response.base.BaseException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 

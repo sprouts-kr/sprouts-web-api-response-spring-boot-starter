@@ -1,4 +1,4 @@
-package kr.sprouts.autoconfigure.response.base.exception;
+package kr.sprouts.autoconfigure.response.base;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;

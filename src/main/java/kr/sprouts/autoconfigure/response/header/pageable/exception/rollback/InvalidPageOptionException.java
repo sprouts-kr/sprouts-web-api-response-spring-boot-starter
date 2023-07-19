@@ -1,6 +1,6 @@
 package kr.sprouts.autoconfigure.response.header.pageable.exception.rollback;
 
-import kr.sprouts.autoconfigure.response.base.exception.BaseRollbackException;
+import kr.sprouts.autoconfigure.response.base.BaseRollbackException;
 import org.springframework.http.HttpStatus;
 
 public class InvalidPageOptionException extends BaseRollbackException {

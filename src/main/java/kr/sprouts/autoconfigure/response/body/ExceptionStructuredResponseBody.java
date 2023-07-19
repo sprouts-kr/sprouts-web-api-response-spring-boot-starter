@@ -1,7 +1,7 @@
 package kr.sprouts.autoconfigure.response.body;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import kr.sprouts.autoconfigure.response.base.exception.BaseException;
+import kr.sprouts.autoconfigure.response.base.BaseException;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
