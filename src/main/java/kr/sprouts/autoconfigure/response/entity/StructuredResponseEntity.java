@@ -51,7 +51,7 @@ public class StructuredResponseEntity extends ResponseEntity<StructuredResponseB
         );
     }
 
-    static StructuredResponseEntity createFromStructuredPagedResponseEntity(StructuredPagedResponseEntity structuredPagedResponseEntity, Long totalSize) {
+    static StructuredResponseEntity createFromStructuredPagedResponseEntity(StructuredPagedResponseEntity<?> structuredPagedResponseEntity, Long totalSize) {
         return new StructuredResponseEntity(
                 PagedStructuredResponseBody.of(
                         structuredPagedResponseEntity.getBaseResponseBody(),
