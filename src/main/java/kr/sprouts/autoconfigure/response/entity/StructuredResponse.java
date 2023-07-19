@@ -25,7 +25,7 @@ public class StructuredResponse {
         return StructuredResponseEntity.createFromSingleResponse(response, HttpStatus.OK);
     }
 
-    public static <T extends BaseResponse> StructuredResponseEntity deleted() {
+    public static StructuredResponseEntity deleted() {
         return StructuredResponseEntity.createFromHttpStatus(HttpStatus.NO_CONTENT);
     }
 
