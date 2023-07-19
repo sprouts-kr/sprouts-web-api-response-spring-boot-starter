@@ -17,7 +17,7 @@ public class SortableRequest {
 
     public static SortableRequest fromString(String string) {
         if (string == null) {
-            return new SortableRequest(Collections.EMPTY_LIST);
+            return new SortableRequest(Collections.emptyList());
         }
 
         String[] params = string.split(",");

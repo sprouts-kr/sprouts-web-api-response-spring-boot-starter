@@ -17,7 +17,7 @@ public class SortableProxy {
 
     public static SortableProxy fromRequest(SortableRequest request) {
         if (request == null || request.getSortBy() == null) {
-            return new SortableProxy(Collections.EMPTY_LIST);
+            return new SortableProxy(Collections.emptyList());
         }
 
         return new SortableProxy(
