@@ -15,17 +15,13 @@ import java.util.stream.Collectors;
 @Component
 @Slf4j
 public class LinkBuilder {
+    private final WebApiResponseProperty webApiResponseProperty;
     static String defaultHost = null;
     static Map<String, String> hosts = new HashMap<>();
-    private final WebApiResponseProperty webApiResponseProperty;
 
     public LinkBuilder(WebApiResponseProperty webApiResponseProperty) {
         this.webApiResponseProperty = webApiResponseProperty;
 
-        this.initializeLinkBuilder();
-    }
-
-    private void initializeLinkBuilder() {
         LinkBuilder.defaultHost = this.webApiResponseProperty.getDefaultHost();
 
         if (this.webApiResponseProperty.getHosts() != null) {
