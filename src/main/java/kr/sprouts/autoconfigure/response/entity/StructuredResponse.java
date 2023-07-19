@@ -2,16 +2,16 @@ package kr.sprouts.autoconfigure.response.entity;
 
 import kr.sprouts.autoconfigure.response.base.BaseException;
 import kr.sprouts.autoconfigure.response.base.BaseResponse;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
 import java.util.Collection;
 
 @Component
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class StructuredResponse {
-    private StructuredResponse() {
-        throw new IllegalStateException("Utility class");
-    }
 
     public static <C extends Collection<? extends BaseResponse>> StructuredResponseEntity succeeded(C responses) {
         return StructuredResponseEntity.createFromMultiResponse(responses, HttpStatus.OK);
