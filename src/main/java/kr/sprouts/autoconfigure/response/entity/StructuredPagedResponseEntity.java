@@ -10,7 +10,8 @@ import java.util.Collection;
 public class StructuredPagedResponseEntity<C extends Collection<? extends BaseResponse>> {
 
     @Getter
-    private final static HttpStatus httpStatus = HttpStatus.OK;
+    private static final HttpStatus httpStatus = HttpStatus.OK;
+
     @Getter(AccessLevel.PACKAGE)
     private final C baseResponseBody;
 

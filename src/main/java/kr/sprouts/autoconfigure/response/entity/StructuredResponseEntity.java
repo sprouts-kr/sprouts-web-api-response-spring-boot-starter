@@ -1,12 +1,12 @@
 package kr.sprouts.autoconfigure.response.entity;
 
+import kr.sprouts.autoconfigure.response.base.BaseException;
 import kr.sprouts.autoconfigure.response.base.BaseResponse;
-import kr.sprouts.autoconfigure.response.base.exception.BaseException;
 import kr.sprouts.autoconfigure.response.body.ComposedStructuredResponseBody;
+import kr.sprouts.autoconfigure.response.body.ExceptionStructuredResponseBody;
 import kr.sprouts.autoconfigure.response.body.PagedStructuredResponseBody;
 import kr.sprouts.autoconfigure.response.body.SingleStructuredResponseBody;
 import kr.sprouts.autoconfigure.response.body.StructuredResponseBody;
-import kr.sprouts.autoconfigure.response.body.exception.ExceptionStructuredResponseBody;
 import kr.sprouts.autoconfigure.response.body.link.ReferenceLink;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -51,7 +51,7 @@ public class StructuredResponseEntity extends ResponseEntity<StructuredResponseB
         );
     }
 
-    static StructuredResponseEntity createFromStructuredPagedResponseEntity(StructuredPagedResponseEntity structuredPagedResponseEntity, Long totalSize) {
+    static StructuredResponseEntity createFromStructuredPagedResponseEntity(StructuredPagedResponseEntity<?> structuredPagedResponseEntity, Long totalSize) {
         return new StructuredResponseEntity(
                 PagedStructuredResponseBody.of(
                         structuredPagedResponseEntity.getBaseResponseBody(),

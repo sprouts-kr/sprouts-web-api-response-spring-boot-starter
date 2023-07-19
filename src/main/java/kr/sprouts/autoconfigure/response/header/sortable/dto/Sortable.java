@@ -16,7 +16,7 @@ public class Sortable {
 
     public static Sortable fromProxy(SortableProxy proxy) {
         if (proxy == null || proxy.getSortBy() == null) {
-            return new Sortable(Collections.EMPTY_LIST);
+            return new Sortable(Collections.emptyList());
         }
 
         return new Sortable(

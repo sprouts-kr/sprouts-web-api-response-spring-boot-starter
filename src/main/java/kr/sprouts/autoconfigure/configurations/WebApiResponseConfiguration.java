@@ -3,8 +3,8 @@ package kr.sprouts.autoconfigure.configurations;
 import kr.sprouts.autoconfigure.properties.WebApiResponseProperty;
 import kr.sprouts.autoconfigure.response.body.link.LinkBuilder;
 import kr.sprouts.autoconfigure.response.entity.StructuredResponse;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-import org.slf4j.LoggerFactory;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -16,6 +16,7 @@ import java.util.List;
 @Configuration
 @EnableConfigurationProperties(value = { WebApiResponseProperty.class })
 @ComponentScan(basePackageClasses = { LinkBuilder.class, StructuredResponse.class })
+@Slf4j
 public class WebApiResponseConfiguration {
 
     private final WebApiResponseProperty webApiResponseProperty;
@@ -39,8 +40,9 @@ public class WebApiResponseConfiguration {
             throw new IllegalArgumentException("No match for sprouts.web.response.default-host in sprouts.web.response.hosts");
         }
 
-        LoggerFactory.getLogger(WebApiResponseConfiguration.class)
-                .info(String.format("Initialized %s", WebApiResponseConfiguration.class.getName()));
+        if (log.isInfoEnabled()) {
+            log.info(String.format("Initialized %s", WebApiResponseConfiguration.class.getName()));
+        }
     }
 
     private boolean isValidUrl(String url) {
@@ -51,13 +53,5 @@ public class WebApiResponseConfiguration {
         catch (MalformedURLException e) {
             return false;
         }
-    }
-
-    public String getDefaultHost() {
-        return this.webApiResponseProperty.getDefaultHost();
-    }
-
-    public List<WebApiResponseProperty.Host> getHosts() {
-        return this.webApiResponseProperty.getHosts();
     }
 }

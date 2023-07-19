@@ -1,9 +1,9 @@
-package kr.sprouts.autoconfigure.response.body.exception;
+package kr.sprouts.autoconfigure.response.body;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import kr.sprouts.autoconfigure.response.base.exception.BaseException;
-import kr.sprouts.autoconfigure.response.body.StructuredResponseBody;
+import kr.sprouts.autoconfigure.response.base.BaseException;
 import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -21,5 +21,13 @@ public class ExceptionStructuredResponseBody extends StructuredResponseBody {
 
     public static ExceptionStructuredResponseBody of(BaseException exception) {
         return new ExceptionStructuredResponseBody(exception);
+    }
+
+    @AllArgsConstructor(access = AccessLevel.PRIVATE)
+    private static class Error {
+        @Getter
+        private final String value;
+        @Getter
+        private final String reason;
     }
 }

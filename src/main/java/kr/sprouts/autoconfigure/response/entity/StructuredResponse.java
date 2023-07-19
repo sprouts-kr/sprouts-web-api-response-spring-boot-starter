@@ -1,13 +1,16 @@
 package kr.sprouts.autoconfigure.response.entity;
 
+import kr.sprouts.autoconfigure.response.base.BaseException;
 import kr.sprouts.autoconfigure.response.base.BaseResponse;
-import kr.sprouts.autoconfigure.response.base.exception.BaseException;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
 import java.util.Collection;
 
 @Component
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class StructuredResponse {
 
     public static <C extends Collection<? extends BaseResponse>> StructuredResponseEntity succeeded(C responses) {
@@ -22,7 +25,7 @@ public class StructuredResponse {
         return StructuredResponseEntity.createFromSingleResponse(response, HttpStatus.OK);
     }
 
-    public static <T extends BaseResponse> StructuredResponseEntity deleted() {
+    public static StructuredResponseEntity deleted() {
         return StructuredResponseEntity.createFromHttpStatus(HttpStatus.NO_CONTENT);
     }
 
