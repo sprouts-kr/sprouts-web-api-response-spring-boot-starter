@@ -9,6 +9,9 @@ import java.util.Collection;
 
 @Component
 public class StructuredResponse {
+    private StructuredResponse() {
+        throw new IllegalStateException("Utility class");
+    }
 
     public static <C extends Collection<? extends BaseResponse>> StructuredResponseEntity succeeded(C responses) {
         return StructuredResponseEntity.createFromMultiResponse(responses, HttpStatus.OK);
