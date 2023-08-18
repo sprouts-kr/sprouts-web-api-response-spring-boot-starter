@@ -28,7 +28,7 @@ public class WebApiResponseConfiguration {
             throw new IllegalArgumentException("Property sprouts.web.response.default-host is required.");
         }
 
-        if (this.webApiResponseProperty.getHosts() == null || webApiResponseProperty.getHosts().size() == 0) {
+        if (this.webApiResponseProperty.getHosts() == null || webApiResponseProperty.getHosts().isEmpty()) {
             throw new IllegalArgumentException("Property sprouts.web.response.hosts is required.");
         }
 
