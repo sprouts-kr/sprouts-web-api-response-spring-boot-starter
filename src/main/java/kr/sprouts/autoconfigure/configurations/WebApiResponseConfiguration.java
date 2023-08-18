@@ -11,7 +11,6 @@ import org.springframework.context.annotation.Configuration;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.List;
 
 @Configuration
 @EnableConfigurationProperties(value = { WebApiResponseProperty.class })
@@ -28,7 +27,7 @@ public class WebApiResponseConfiguration {
             throw new IllegalArgumentException("Property sprouts.web.response.default-host is required.");
         }
 
-        if (this.webApiResponseProperty.getHosts() == null || webApiResponseProperty.getHosts().size() == 0) {
+        if (this.webApiResponseProperty.getHosts() == null || webApiResponseProperty.getHosts().isEmpty()) {
             throw new IllegalArgumentException("Property sprouts.web.response.hosts is required.");
         }
 
@@ -40,9 +39,7 @@ public class WebApiResponseConfiguration {
             throw new IllegalArgumentException("No match for sprouts.web.response.default-host in sprouts.web.response.hosts");
         }
 
-        if (log.isInfoEnabled()) {
-            log.info(String.format("Initialized %s", WebApiResponseConfiguration.class.getName()));
-        }
+        if (log.isInfoEnabled()) log.info("Initialized {}", WebApiResponseConfiguration.class.getSimpleName());
     }
 
     private boolean isValidUrl(String url) {
