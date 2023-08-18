@@ -62,9 +62,7 @@ public class LinkBuilder {
         String host = LinkBuilder.getHost(hostName);
 
         if (host == null) {
-            if (log.isErrorEnabled()) {
-                log.error(String.format("Cannot create link. Host named \"%s\" not matched in host", hostName));
-            }
+            if (log.isErrorEnabled()) log.error("Cannot create link. Host named '{}' not matched in host", hostName);
 
             return ReferenceLink.getEmptyInstance();
         }
@@ -76,8 +74,10 @@ public class LinkBuilder {
     public static String getHost(String hostName) {
         String host = LinkBuilder.hosts.get(hostName);
 
-        if (host == null && log.isWarnEnabled()) {
-            log.warn(String.format("Cannot find host named \"%s\"", hostName));
+        if (host == null) {
+            if(log.isWarnEnabled()) log.warn("Cannot find host named '{}'", hostName);
+
+            return null;
         }
 
         return host;
@@ -85,17 +85,13 @@ public class LinkBuilder {
 
     public static String getDefaultHost() {
         if (LinkBuilder.defaultHost == null) {
-            if (log.isErrorEnabled()) {
-                log.error("Cannot create link from default host. Default host not registered.");
-            }
+            if (log.isErrorEnabled()) log.error("Cannot create link from default host. Default host not registered.");
 
             return null;
         }
 
         if (LinkBuilder.hosts.get(LinkBuilder.defaultHost) == null) {
-            if (log.isErrorEnabled()) {
-                log.error(String.format("Cannot create link from default host. Default host \"%s\" not matched in host", LinkBuilder.defaultHost));
-            }
+            if (log.isErrorEnabled()) log.error("Cannot create link from default host. Default host '{}' not matched in host", LinkBuilder.defaultHost);
 
             return null;
         }
