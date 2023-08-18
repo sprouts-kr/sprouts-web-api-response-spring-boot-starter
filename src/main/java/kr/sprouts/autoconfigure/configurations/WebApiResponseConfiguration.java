@@ -11,7 +11,6 @@ import org.springframework.context.annotation.Configuration;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.List;
 
 @Configuration
 @EnableConfigurationProperties(value = { WebApiResponseProperty.class })
