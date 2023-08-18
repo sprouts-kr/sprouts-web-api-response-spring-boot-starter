@@ -40,9 +40,7 @@ public class WebApiResponseConfiguration {
             throw new IllegalArgumentException("No match for sprouts.web.response.default-host in sprouts.web.response.hosts");
         }
 
-        if (log.isInfoEnabled()) {
-            log.info(String.format("Initialized %s", WebApiResponseConfiguration.class.getName()));
-        }
+        if (log.isInfoEnabled()) log.info("Initialized {}", WebApiResponseConfiguration.class.getSimpleName());
     }
 
     private boolean isValidUrl(String url) {
