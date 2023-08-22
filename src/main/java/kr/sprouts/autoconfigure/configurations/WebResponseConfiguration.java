@@ -1,8 +1,8 @@
 package kr.sprouts.autoconfigure.configurations;
 
 import kr.sprouts.autoconfigure.properties.WebResponseConfigurationProperty;
-import kr.sprouts.autoconfigure.response.body.link.LinkBuilder;
-import kr.sprouts.autoconfigure.response.entity.StructuredResponse;
+import kr.sprouts.autoconfigure.components.body.link.LinkBuilder;
+import kr.sprouts.autoconfigure.components.entity.StructuredResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
