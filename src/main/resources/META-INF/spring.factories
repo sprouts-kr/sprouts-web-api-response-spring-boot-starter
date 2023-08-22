@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-    kr.sprouts.autoconfigure.configurations.WebResponseConfiguration\
+    kr.sprouts.framework.autoconfigure.web.response.configurations.WebResponseConfiguration\
