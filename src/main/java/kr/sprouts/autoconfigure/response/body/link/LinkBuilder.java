@@ -1,6 +1,6 @@
 package kr.sprouts.autoconfigure.response.body.link;
 
-import kr.sprouts.autoconfigure.properties.WebApiResponseProperty;
+import kr.sprouts.autoconfigure.properties.WebResponseConfigurationProperty;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
@@ -15,22 +15,22 @@ import java.util.stream.Collectors;
 @Component
 @Slf4j
 public class LinkBuilder {
-    private final WebApiResponseProperty webApiResponseProperty;
+    private final WebResponseConfigurationProperty webResponseConfigurationProperty;
     static String defaultHost = null;
     static Map<String, String> hosts = new HashMap<>();
 
-    public LinkBuilder(WebApiResponseProperty webApiResponseProperty) {
-        this.webApiResponseProperty = webApiResponseProperty;
+    public LinkBuilder(WebResponseConfigurationProperty webResponseConfigurationProperty) {
+        this.webResponseConfigurationProperty = webResponseConfigurationProperty;
 
-        LinkBuilder.defaultHost = this.webApiResponseProperty.getDefaultHost();
+        LinkBuilder.defaultHost = this.webResponseConfigurationProperty.getDefaultHost();
 
-        if (this.webApiResponseProperty.getHosts() != null) {
-            LinkBuilder.hosts = this.webApiResponseProperty.getHosts().stream()
+        if (this.webResponseConfigurationProperty.getHosts() != null) {
+            LinkBuilder.hosts = this.webResponseConfigurationProperty.getHosts().stream()
                     .filter(host -> host.getName() != null && host.getUrl() != null)
                     .filter(host -> this.isValidUrl(host.getUrl()))
                     .collect(Collectors.toMap(
-                            WebApiResponseProperty.Host::getName,
-                            WebApiResponseProperty.Host::getUrl,
+                            WebResponseConfigurationProperty.Host::getName,
+                            WebResponseConfigurationProperty.Host::getUrl,
                             (prev, current) -> prev
                     ));
         }

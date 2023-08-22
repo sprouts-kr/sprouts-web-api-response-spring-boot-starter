@@ -6,9 +6,9 @@ import org.springframework.boot.test.context.runner.ApplicationContextRunner;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class WebApiResponseConfigurationTest {
+class WebResponseConfigurationTest {
     private final ApplicationContextRunner applicationContextRunner = new ApplicationContextRunner()
-            .withConfiguration(AutoConfigurations.of(WebApiResponseConfiguration.class));
+            .withConfiguration(AutoConfigurations.of(WebResponseConfiguration.class));
 
     @Test
     void configuration() {
@@ -19,6 +19,6 @@ class WebApiResponseConfigurationTest {
         };
 
         this.applicationContextRunner.withPropertyValues(properties)
-                .run(context-> assertThat(context).hasSingleBean(WebApiResponseConfiguration.class));
+                .run(context-> assertThat(context).hasSingleBean(WebResponseConfiguration.class));
     }
 }

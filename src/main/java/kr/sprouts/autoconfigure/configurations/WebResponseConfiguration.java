@@ -1,6 +1,6 @@
 package kr.sprouts.autoconfigure.configurations;
 
-import kr.sprouts.autoconfigure.properties.WebApiResponseProperty;
+import kr.sprouts.autoconfigure.properties.WebResponseConfigurationProperty;
 import kr.sprouts.autoconfigure.response.body.link.LinkBuilder;
 import kr.sprouts.autoconfigure.response.entity.StructuredResponse;
 import lombok.extern.slf4j.Slf4j;
@@ -13,33 +13,33 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 @Configuration
-@EnableConfigurationProperties(value = { WebApiResponseProperty.class })
+@EnableConfigurationProperties(value = { WebResponseConfigurationProperty.class })
 @ComponentScan(basePackageClasses = { LinkBuilder.class, StructuredResponse.class })
 @Slf4j
-public class WebApiResponseConfiguration {
+public class WebResponseConfiguration {
 
-    private final WebApiResponseProperty webApiResponseProperty;
+    private final WebResponseConfigurationProperty webResponseConfigurationProperty;
 
-    public WebApiResponseConfiguration(WebApiResponseProperty webApiResponseProperty) {
-        this.webApiResponseProperty = webApiResponseProperty;
+    public WebResponseConfiguration(WebResponseConfigurationProperty webResponseConfigurationProperty) {
+        this.webResponseConfigurationProperty = webResponseConfigurationProperty;
 
-        if (StringUtils.isBlank(this.webApiResponseProperty.getDefaultHost())) {
+        if (StringUtils.isBlank(this.webResponseConfigurationProperty.getDefaultHost())) {
             throw new IllegalArgumentException("Property sprouts.web.response.default-host is required.");
         }
 
-        if (this.webApiResponseProperty.getHosts() == null || webApiResponseProperty.getHosts().isEmpty()) {
+        if (this.webResponseConfigurationProperty.getHosts() == null || webResponseConfigurationProperty.getHosts().isEmpty()) {
             throw new IllegalArgumentException("Property sprouts.web.response.hosts is required.");
         }
 
-        if (this.webApiResponseProperty.getHosts().stream().filter(host -> StringUtils.isNotBlank(host.getName()) && StringUtils.isNotBlank(host.getUrl()) && this.isValidUrl(host.getUrl())).count() != webApiResponseProperty.getHosts().size()) {
+        if (this.webResponseConfigurationProperty.getHosts().stream().filter(host -> StringUtils.isNotBlank(host.getName()) && StringUtils.isNotBlank(host.getUrl()) && this.isValidUrl(host.getUrl())).count() != webResponseConfigurationProperty.getHosts().size()) {
             throw new IllegalArgumentException("Property sprouts.web.response.hosts has an invalid host defined.");
         }
 
-        if (this.webApiResponseProperty.getHosts().stream().noneMatch(host -> this.webApiResponseProperty.getDefaultHost().equals(host.getName()))) {
+        if (this.webResponseConfigurationProperty.getHosts().stream().noneMatch(host -> this.webResponseConfigurationProperty.getDefaultHost().equals(host.getName()))) {
             throw new IllegalArgumentException("No match for sprouts.web.response.default-host in sprouts.web.response.hosts");
         }
 
-        if (log.isInfoEnabled()) log.info("Initialized {}", WebApiResponseConfiguration.class.getSimpleName());
+        if (log.isInfoEnabled()) log.info("Initialized {}", WebResponseConfiguration.class.getSimpleName());
     }
 
     private boolean isValidUrl(String url) {
