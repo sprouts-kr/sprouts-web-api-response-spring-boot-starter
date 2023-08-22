@@ -8,10 +8,10 @@
 		<version>2.7.14</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>kr.sprouts.autoconfigure</groupId>
-	<artifactId>sprouts-web-api-response-spring-boot-starter</artifactId>
+	<groupId>kr.sprouts.framework.autoconfigure</groupId>
+	<artifactId>sprouts-web-response-spring-boot-starter</artifactId>
 	<version>0.0.4-SNAPSHOT</version>
-	<name>sprouts-web-api-response-spring-boot-starter</name>
+	<name>sprouts-web-response-spring-boot-starter</name>
 	<properties>
 		<sonar.qualitygate.wait>true</sonar.qualitygate.wait>
 		<java.version>11</java.version>
