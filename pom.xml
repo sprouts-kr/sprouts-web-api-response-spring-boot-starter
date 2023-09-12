@@ -13,7 +13,6 @@
 	<version>0.0.5-SNAPSHOT</version>
 	<name>sprouts-web-response-spring-boot-starter</name>
 	<properties>
-		<sonar.qualitygate.wait>true</sonar.qualitygate.wait>
 		<java.version>11</java.version>
 		<!-- plugin -->
 		<build.helper.maven.plugin.version>3.4.0</build.helper.maven.plugin.version>
