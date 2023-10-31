@@ -8,10 +8,8 @@ import org.springframework.http.HttpStatus;
 import java.util.Collection;
 
 public class StructuredPagedResponseEntity<C extends Collection<? extends BaseResponse>> {
-
     @Getter
     private static final HttpStatus httpStatus = HttpStatus.OK;
-
     @Getter(AccessLevel.PACKAGE)
     private final C baseResponseBody;
 

@@ -12,7 +12,6 @@ import java.util.Collection;
 @Component
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class StructuredResponse {
-
     public static <C extends Collection<? extends BaseResponse>> StructuredResponseEntity succeeded(C responses) {
         return StructuredResponseEntity.createFromMultiResponse(responses, HttpStatus.OK);
     }

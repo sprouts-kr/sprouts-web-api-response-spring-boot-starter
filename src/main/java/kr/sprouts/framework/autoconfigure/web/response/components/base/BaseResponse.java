@@ -10,12 +10,9 @@ import java.util.HashMap;
 import java.util.UUID;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Getter
 public class BaseResponse {
-
-    @Getter
     private HashMap<String, Link> links;
-
-    @Getter
     private UUID id;
 
     protected BaseResponse(UUID id) {

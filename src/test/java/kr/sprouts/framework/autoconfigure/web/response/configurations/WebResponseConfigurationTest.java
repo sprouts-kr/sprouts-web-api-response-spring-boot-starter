@@ -15,7 +15,7 @@ class WebResponseConfigurationTest {
         String[] properties = {
                 "sprouts.web.response.default-host=sprouts-gateway",
                 "sprouts.web.response.hosts[0].name=sprouts-gateway",
-                "sprouts.web.response.hosts[0].url=http://gateway.framework.sprouts.kr"
+                "sprouts.web.response.hosts[0].url=http://gateway.framework.local"
         };
 
         this.applicationContextRunner.withPropertyValues(properties)

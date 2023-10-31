@@ -9,11 +9,9 @@ import lombok.NoArgsConstructor;
 import java.util.HashMap;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Getter
 public class StructuredResponseBody {
-
-    @Getter
     private boolean succeeded;
-    @Getter
     private HashMap<String, Link> links;
 
     protected StructuredResponseBody(boolean succeeded) {

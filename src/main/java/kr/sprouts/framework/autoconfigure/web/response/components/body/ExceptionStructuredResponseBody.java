@@ -9,9 +9,8 @@ import lombok.NoArgsConstructor;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@Getter
 public class ExceptionStructuredResponseBody extends StructuredResponseBody {
-
-    @Getter
     private Error error;
 
     private ExceptionStructuredResponseBody(BaseException exception) {
@@ -24,10 +23,9 @@ public class ExceptionStructuredResponseBody extends StructuredResponseBody {
     }
 
     @AllArgsConstructor(access = AccessLevel.PRIVATE)
+    @Getter
     private static class Error {
-        @Getter
         private final String value;
-        @Getter
         private final String reason;
     }
 }

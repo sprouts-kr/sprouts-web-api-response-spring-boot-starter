@@ -16,7 +16,6 @@ import org.springframework.util.MultiValueMap;
 import java.util.Collection;
 
 public class StructuredResponseEntity extends ResponseEntity<StructuredResponseBody> {
-
     private StructuredResponseEntity(HttpStatus httpStatus) {
         super(httpStatus);
     }

@@ -17,7 +17,6 @@ import java.net.URL;
 @ComponentScan(basePackageClasses = { LinkBuilder.class, StructuredResponse.class })
 @Slf4j
 public class WebResponseConfiguration {
-
     private final WebResponseConfigurationProperty webResponseConfigurationProperty;
 
     public WebResponseConfiguration(WebResponseConfigurationProperty webResponseConfigurationProperty) {

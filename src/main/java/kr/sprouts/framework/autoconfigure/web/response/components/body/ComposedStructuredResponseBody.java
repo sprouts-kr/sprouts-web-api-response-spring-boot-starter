@@ -10,11 +10,9 @@ import java.util.Collection;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@Getter
 public class ComposedStructuredResponseBody<C extends Collection<? extends BaseResponse>> extends StructuredResponseBody {
-
-    @Getter
     private C content;
-    @Getter
     private Integer size;
 
     private ComposedStructuredResponseBody(C content) {

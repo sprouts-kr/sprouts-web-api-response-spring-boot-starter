@@ -6,7 +6,6 @@ import lombok.Getter;
 
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class PageableRequest {
-
     @Getter(AccessLevel.PACKAGE)
     private String offset;
     @Getter(AccessLevel.PACKAGE)
