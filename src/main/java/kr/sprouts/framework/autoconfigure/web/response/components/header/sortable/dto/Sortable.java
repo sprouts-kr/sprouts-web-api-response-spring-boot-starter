@@ -9,9 +9,8 @@ import java.util.List;
 import java.util.Optional;
 
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
+@Getter
 public class Sortable {
-
-    @Getter
     private List<SortOption> sortBy;
 
     public static Sortable fromProxy(SortableProxy proxy) {

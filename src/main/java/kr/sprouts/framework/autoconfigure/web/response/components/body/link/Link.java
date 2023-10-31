@@ -11,20 +11,14 @@ import java.net.URI;
 
 @AllArgsConstructor(access = AccessLevel.PRIVATE, staticName = "of")
 public class Link implements Serializable {
-
     @Getter
     private URI href;
-
     @Getter
     private HttpMethod method;
-
     private MediaType mediaType;
 
     public String getMediaType() {
-        return String.format("%s/%s",
-                this.mediaType.getType(),
-                this.mediaType.getSubtype()
-        );
+        return String.format("%s/%s", this.mediaType.getType(), this.mediaType.getSubtype());
     }
 
     public static Link fromReferenceLink(ReferenceLink referenceLink) {

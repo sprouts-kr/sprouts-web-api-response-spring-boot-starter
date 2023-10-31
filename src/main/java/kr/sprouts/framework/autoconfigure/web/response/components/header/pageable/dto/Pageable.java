@@ -5,11 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
+@Getter
 public class Pageable {
-
-    @Getter
     private Integer offset;
-    @Getter
     private Integer limit;
 
     public static Pageable fromProxy(PageableProxy proxy) {

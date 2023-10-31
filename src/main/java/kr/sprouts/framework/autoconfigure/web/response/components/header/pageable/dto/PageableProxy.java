@@ -7,7 +7,6 @@ import lombok.Getter;
 
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class PageableProxy {
-
     @Getter(AccessLevel.PACKAGE)
     private Integer offset;
     @Getter(AccessLevel.PACKAGE)

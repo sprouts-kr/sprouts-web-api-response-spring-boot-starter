@@ -11,7 +11,6 @@ import java.util.stream.Collectors;
 
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class SortableProxy {
-
     @Getter(AccessLevel.PACKAGE)
     private List<SortOption> sortBy;
 

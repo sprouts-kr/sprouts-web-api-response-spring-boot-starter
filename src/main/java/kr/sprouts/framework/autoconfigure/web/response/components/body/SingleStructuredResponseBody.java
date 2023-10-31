@@ -8,9 +8,8 @@ import lombok.NoArgsConstructor;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@Getter
 public class SingleStructuredResponseBody<T extends BaseResponse> extends StructuredResponseBody {
-
-    @Getter
     private T content;
 
     private SingleStructuredResponseBody(T content) {

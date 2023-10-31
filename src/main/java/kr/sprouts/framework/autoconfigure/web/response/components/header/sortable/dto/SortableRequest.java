@@ -11,7 +11,6 @@ import java.util.stream.Collectors;
 
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class SortableRequest {
-
     @Getter(AccessLevel.PACKAGE)
     List<String> sortBy;
 
@@ -25,7 +24,7 @@ public class SortableRequest {
         return new SortableRequest(
                 Arrays.stream(params)
                         .map(String::trim)
-                        .filter(param -> param.length() != 0)
+                        .filter(param -> !param.isEmpty())
                         .collect(Collectors.toList())
         );
     }

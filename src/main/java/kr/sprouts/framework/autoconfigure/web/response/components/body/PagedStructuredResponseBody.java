@@ -10,13 +10,10 @@ import java.util.Collection;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@Getter
 public class PagedStructuredResponseBody<C extends Collection<? extends BaseResponse>> extends StructuredResponseBody {
-
-    @Getter
     private C content;
-    @Getter
     private Integer size;
-    @Getter
     private Long totalSize;
 
     private PagedStructuredResponseBody(C content, Long totalSize) {

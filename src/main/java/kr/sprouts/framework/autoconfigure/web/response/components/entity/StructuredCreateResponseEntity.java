@@ -10,13 +10,10 @@ import org.springframework.http.HttpStatus;
 import java.net.URI;
 
 public class StructuredCreateResponseEntity {
-
     @Getter
     private static final HttpStatus httpStatus = HttpStatus.CREATED;
-
     @Getter
     private URI location;
-
     @Getter(AccessLevel.PACKAGE)
     private final BaseResponse baseResponseBody;
 
