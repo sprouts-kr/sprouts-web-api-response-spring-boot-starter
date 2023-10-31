@@ -1,12 +1,12 @@
 package kr.sprouts.framework.autoconfigure.web.response.components.entity;
 
+import jakarta.validation.constraints.NotNull;
 import kr.sprouts.framework.autoconfigure.web.response.components.base.BaseResponse;
 import kr.sprouts.framework.autoconfigure.web.response.components.entity.function.CreatedLocationFunction;
 import lombok.AccessLevel;
 import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
-import javax.validation.constraints.NotNull;
 import java.net.URI;
 
 public class StructuredCreateResponseEntity {
