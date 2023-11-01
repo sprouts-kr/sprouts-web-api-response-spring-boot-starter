@@ -5,14 +5,14 @@ import kr.sprouts.framework.autoconfigure.web.response.components.entity.Structu
 import kr.sprouts.framework.autoconfigure.web.response.properties.WebResponseConfigurationProperty;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 
-@Configuration
+@AutoConfiguration
 @EnableConfigurationProperties(value = { WebResponseConfigurationProperty.class })
 @ComponentScan(basePackageClasses = { LinkBuilder.class, StructuredResponse.class })
 @Slf4j
